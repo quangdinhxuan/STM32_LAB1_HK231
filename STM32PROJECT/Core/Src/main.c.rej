@@ -1,0 +1,10 @@
+diff a/STM32PROJECT/Core/Src/main.c b/STM32PROJECT/Core/Src/main.c	(rejected hunks)
+@@ -94,7 +94,7 @@
+   while (1)
+   {
+     /* USER CODE END WHILE */
+-
++//todo
+     /* USER CODE BEGIN 3 */
+   }
+   /* USER CODE END 3 */
