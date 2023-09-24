@@ -193,11 +193,14 @@ int main(void)
 
      	  }
        }
-   int cnt=0;
+   int cnt=9;
   while (1)
-  {if( cnt >= 10) cnt = 0;
-	   display7SEG ( cnt ++) ;
-	   HAL_Delay (1000) ;
+  { if(cnt<0){
+	  cnt=9;
+  }
+	 display7SEG(cnt);
+	 cnt--;
+	 HAL_Delay (1000) ;
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
