@@ -102,7 +102,7 @@ int main(void)
   if(cnt%5==0){
 	  HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
   }
-
+ HAL_Delay(1000);
 	  cnt++;
 
     /* USER CODE END WHILE */
