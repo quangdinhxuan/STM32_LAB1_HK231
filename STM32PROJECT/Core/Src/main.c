@@ -91,145 +91,25 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  HAL_GPIO_WritePin(a_GPIO_Port, a_Pin, SET);
-   HAL_GPIO_WritePin(g_GPIO_Port, g_Pin, SET);
-   HAL_GPIO_WritePin(b_GPIO_Port, b_Pin, SET);
-   HAL_GPIO_WritePin(c_GPIO_Port, c_Pin, SET);
-   HAL_GPIO_WritePin(d_GPIO_Port, d_Pin, SET);
-   HAL_GPIO_WritePin(e_GPIO_Port, e_Pin, SET);
-   HAL_GPIO_WritePin(f_GPIO_Port, f_Pin, SET);
-   //TODO
-   void display7SEG(int num){
-     	  switch(num){
-     	  	  	case 0:
-     				  HAL_GPIO_WritePin(a_GPIO_Port, a_Pin, RESET);
-     				  HAL_GPIO_WritePin(b_GPIO_Port, b_Pin, RESET);
-     				  HAL_GPIO_WritePin(c_GPIO_Port, c_Pin, RESET);
-     				  HAL_GPIO_WritePin(d_GPIO_Port, d_Pin, RESET);
-     				  HAL_GPIO_WritePin(e_GPIO_Port, e_Pin, RESET);
-     				  HAL_GPIO_WritePin(f_GPIO_Port, f_Pin, RESET);
-     				  HAL_GPIO_WritePin(g_GPIO_Port, g_Pin, SET);
-     				  break;
-     	  		case 1:
-     				  HAL_GPIO_WritePin(a_GPIO_Port, a_Pin, SET);
-     				  HAL_GPIO_WritePin(b_GPIO_Port, b_Pin, RESET);
-     				  HAL_GPIO_WritePin(c_GPIO_Port, c_Pin, RESET);
-     				  HAL_GPIO_WritePin(d_GPIO_Port, d_Pin, SET);
-     				  HAL_GPIO_WritePin(e_GPIO_Port, e_Pin, SET);
-     				  HAL_GPIO_WritePin(f_GPIO_Port, f_Pin, SET);
-     				  HAL_GPIO_WritePin(g_GPIO_Port, g_Pin, SET);
-     				  break;
-     	  		case 2:
-     				  HAL_GPIO_WritePin(a_GPIO_Port, a_Pin, RESET);
-     				  HAL_GPIO_WritePin(b_GPIO_Port, b_Pin, RESET);
-     				  HAL_GPIO_WritePin(c_GPIO_Port, c_Pin, SET);
-     				  HAL_GPIO_WritePin(d_GPIO_Port, d_Pin, RESET);
-     				  HAL_GPIO_WritePin(e_GPIO_Port, e_Pin, RESET);
-     				  HAL_GPIO_WritePin(f_GPIO_Port, f_Pin, SET);
-     				  HAL_GPIO_WritePin(g_GPIO_Port, g_Pin, RESET);
-     				  break;
-     	  		case 3:
-     				  HAL_GPIO_WritePin(a_GPIO_Port, a_Pin, RESET);
-     				  HAL_GPIO_WritePin(b_GPIO_Port, b_Pin, RESET);
-     				  HAL_GPIO_WritePin(c_GPIO_Port, c_Pin, RESET);
-     				  HAL_GPIO_WritePin(d_GPIO_Port, d_Pin, RESET);
-     				  HAL_GPIO_WritePin(e_GPIO_Port, e_Pin, SET);
-     				  HAL_GPIO_WritePin(f_GPIO_Port, f_Pin, SET);
-     				  HAL_GPIO_WritePin(g_GPIO_Port, g_Pin, RESET);
-     				  break;
-     	  		case 4:
-     		  		  HAL_GPIO_WritePin(a_GPIO_Port, a_Pin, SET);
-     				  HAL_GPIO_WritePin(b_GPIO_Port, b_Pin, RESET);
-     				  HAL_GPIO_WritePin(c_GPIO_Port, c_Pin, RESET);
-     				  HAL_GPIO_WritePin(d_GPIO_Port, d_Pin, SET);
-     				  HAL_GPIO_WritePin(e_GPIO_Port, e_Pin, SET);
-     				  HAL_GPIO_WritePin(f_GPIO_Port, f_Pin, RESET);
-     				  HAL_GPIO_WritePin(g_GPIO_Port, g_Pin, RESET);
-     				  break;
-     			case 5:
-     				  HAL_GPIO_WritePin(a_GPIO_Port, a_Pin, RESET);
-     				  HAL_GPIO_WritePin(b_GPIO_Port, b_Pin, SET);
-     				  HAL_GPIO_WritePin(c_GPIO_Port, c_Pin, RESET);
-     				  HAL_GPIO_WritePin(d_GPIO_Port, d_Pin, RESET);
-     				  HAL_GPIO_WritePin(e_GPIO_Port, e_Pin, SET);
-     				  HAL_GPIO_WritePin(f_GPIO_Port, f_Pin, RESET);
-     				  HAL_GPIO_WritePin(g_GPIO_Port, g_Pin, RESET);
-     				  break;
-     			case 6:
-     				  HAL_GPIO_WritePin(a_GPIO_Port, a_Pin, RESET);
-     				  HAL_GPIO_WritePin(b_GPIO_Port, b_Pin, SET);
-     				  HAL_GPIO_WritePin(c_GPIO_Port, c_Pin, RESET);
-     				  HAL_GPIO_WritePin(d_GPIO_Port, d_Pin, RESET);
-     				  HAL_GPIO_WritePin(e_GPIO_Port, e_Pin, RESET);
-     				  HAL_GPIO_WritePin(f_GPIO_Port, f_Pin, RESET);
-     				  HAL_GPIO_WritePin(g_GPIO_Port, g_Pin, RESET);
-     				  break;
-     			case 7:
-     				  HAL_GPIO_WritePin(a_GPIO_Port, a_Pin, RESET);
-     				  HAL_GPIO_WritePin(b_GPIO_Port, b_Pin, RESET);
-     				  HAL_GPIO_WritePin(c_GPIO_Port, c_Pin, RESET);
-     				  HAL_GPIO_WritePin(d_GPIO_Port, d_Pin, SET);
-     				  HAL_GPIO_WritePin(e_GPIO_Port, e_Pin, SET);
-     				  HAL_GPIO_WritePin(f_GPIO_Port, f_Pin, SET);
-     				  HAL_GPIO_WritePin(g_GPIO_Port, g_Pin, SET);
-     				  break;
-     			case 8:
-     				  HAL_GPIO_WritePin(a_GPIO_Port, a_Pin, RESET);
-     				  HAL_GPIO_WritePin(b_GPIO_Port, b_Pin, RESET);
-     				  HAL_GPIO_WritePin(c_GPIO_Port, c_Pin, RESET);
-     				  HAL_GPIO_WritePin(d_GPIO_Port, d_Pin, RESET);
-     				  HAL_GPIO_WritePin(e_GPIO_Port, e_Pin, RESET);
-     				  HAL_GPIO_WritePin(f_GPIO_Port, f_Pin, RESET);
-     				  HAL_GPIO_WritePin(g_GPIO_Port, g_Pin, RESET);
-     				  break;
-     			case 9:
-     				  HAL_GPIO_WritePin(a_GPIO_Port, a_Pin, RESET);
-     				  HAL_GPIO_WritePin(b_GPIO_Port, b_Pin, RESET);
-     				  HAL_GPIO_WritePin(c_GPIO_Port, c_Pin, RESET);
-     				  HAL_GPIO_WritePin(d_GPIO_Port, d_Pin, RESET);
-     				  HAL_GPIO_WritePin(e_GPIO_Port, e_Pin, SET);
-     				  HAL_GPIO_WritePin(f_GPIO_Port, f_Pin, RESET);
-     				  HAL_GPIO_WritePin(g_GPIO_Port, g_Pin, RESET);
-     				  break;
-
-     	  }
-       }
-   int cnt=5;
-   int flag=0;
+  uint16_t pins[12] = {
+  		  zero_Pin,
+  		  one_Pin,
+  		  two_Pin,
+  		  three_Pin,
+  		  four_Pin,
+  		  five_Pin,
+  		  six_Pin,
+  		  seven_Pin,
+  		  eight_Pin,
+  		  nine_Pin,
+  		  ten_Pin,
+  		  eleven_Pin
+    };
   while (1)
-  { if(cnt<0){
-	  cnt=5;
-	  flag++;
+  {for(int i=0; i<12; i++){
+	  HAL_GPIO_TogglePin(GPIOA, pins[i]);
+	  HAL_Delay(1000);
   }
-	 display7SEG(cnt);
-	 if(flag%2==0){
-		 HAL_GPIO_WritePin ( LED_RED_VER_GPIO_Port , LED_RED_VER_Pin ,GPIO_PIN_SET ) ;
-		 HAL_GPIO_WritePin ( LED_YELLOW_VER_GPIO_Port , LED_YELLOW_VER_Pin ,GPIO_PIN_RESET ) ;
-
-		 if(cnt>=2){
-			 HAL_GPIO_WritePin ( LED_GREEN_HOR_GPIO_Port , LED_GREEN_HOR_Pin ,GPIO_PIN_SET ) ;
-			 HAL_GPIO_WritePin ( LED_RED_HOR_GPIO_Port , LED_RED_HOR_Pin ,GPIO_PIN_RESET ) ;
-		 }
-		 else{
-			 HAL_GPIO_WritePin ( LED_YELLOW_HOR_GPIO_Port , LED_YELLOW_HOR_Pin ,GPIO_PIN_SET ) ;
-			 HAL_GPIO_WritePin ( LED_GREEN_HOR_GPIO_Port , LED_GREEN_HOR_Pin ,GPIO_PIN_RESET ) ;
-		 }
-	 }
-	 else{
-		 HAL_GPIO_WritePin ( LED_RED_HOR_GPIO_Port , LED_RED_HOR_Pin ,GPIO_PIN_SET ) ;
-		 HAL_GPIO_WritePin ( LED_YELLOW_HOR_GPIO_Port , LED_YELLOW_HOR_Pin ,GPIO_PIN_RESET ) ;
-		 		 if(cnt>=2){
-		 			 HAL_GPIO_WritePin ( LED_GREEN_VER_GPIO_Port , LED_GREEN_VER_Pin ,GPIO_PIN_SET ) ;
-		 			HAL_GPIO_WritePin ( LED_RED_VER_GPIO_Port , LED_RED_VER_Pin ,GPIO_PIN_RESET ) ;
-		 		 }
-		 		 else{
-		 			 HAL_GPIO_WritePin ( LED_YELLOW_VER_GPIO_Port , LED_YELLOW_VER_Pin ,GPIO_PIN_SET ) ;
-		 			 HAL_GPIO_WritePin ( LED_GREEN_VER_GPIO_Port , LED_GREEN_VER_Pin ,GPIO_PIN_RESET ) ;
-		 		 }
-	 }
-	 cnt--;
-
-	 HAL_Delay (1000) ;
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -286,33 +166,22 @@ static void MX_GPIO_Init(void)
 
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOA_CLK_ENABLE();
-  __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, LED_RED_VER_Pin|LED_YELLOW_VER_Pin|LED_GREEN_VER_Pin|LED_RED_HOR_Pin
-                          |LED_YELLOW_HOR_Pin|LED_GREEN_HOR_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, LED1_Pin|LED2_Pin|LED3_Pin|LED4_Pin
+                          |LED5_Pin|LED6_Pin|LED7_Pin|LED8_Pin
+                          |LED9_Pin|LED10_Pin|LED11_Pin|LED12_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, a_Pin|b_Pin|c_Pin|d_Pin
-                          |e_Pin|f_Pin|g_Pin, GPIO_PIN_RESET);
-
-  /*Configure GPIO pins : LED_RED_VER_Pin LED_YELLOW_VER_Pin LED_GREEN_VER_Pin LED_RED_HOR_Pin
-                           LED_YELLOW_HOR_Pin LED_GREEN_HOR_Pin */
-  GPIO_InitStruct.Pin = LED_RED_VER_Pin|LED_YELLOW_VER_Pin|LED_GREEN_VER_Pin|LED_RED_HOR_Pin
-                          |LED_YELLOW_HOR_Pin|LED_GREEN_HOR_Pin;
+  /*Configure GPIO pins : LED1_Pin LED2_Pin LED3_Pin LED4_Pin
+                           LED5_Pin LED6_Pin LED7_Pin LED8_Pin
+                           LED9_Pin LED10_Pin LED11_Pin LED12_Pin */
+  GPIO_InitStruct.Pin = LED1_Pin|LED2_Pin|LED3_Pin|LED4_Pin
+                          |LED5_Pin|LED6_Pin|LED7_Pin|LED8_Pin
+                          |LED9_Pin|LED10_Pin|LED11_Pin|LED12_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
-
-  /*Configure GPIO pins : a_Pin b_Pin c_Pin d_Pin
-                           e_Pin f_Pin g_Pin */
-  GPIO_InitStruct.Pin = a_Pin|b_Pin|c_Pin|d_Pin
-                          |e_Pin|f_Pin|g_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
 /* USER CODE BEGIN MX_GPIO_Init_2 */
 /* USER CODE END MX_GPIO_Init_2 */
