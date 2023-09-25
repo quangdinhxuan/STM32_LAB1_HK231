@@ -63,9 +63,7 @@ static void MX_GPIO_Init(void);
   */
 void ClearAllClock(){
 
-	HAL_GPIO_WritePin(GPIOA, LED1_Pin|LED2_Pin|LED3_Pin|LED4_Pin
-	                          |LED5_Pin|LED6_Pin|LED7_Pin|LED8_Pin
-	                          |LED9_Pin|LED10_Pin|LED11_Pin|LED12_Pin, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(GPIOA, LED1_Pin|LED2_Pin|LED3_Pin|LED4_Pin|LED5_Pin|LED6_Pin|LED7_Pin|LED8_Pin|LED9_Pin|LED10_Pin|LED11_Pin|LED12_Pin, GPIO_PIN_RESET);
 }
 int main(void)
 {

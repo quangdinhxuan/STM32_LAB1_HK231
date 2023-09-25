@@ -88,13 +88,11 @@ void ClearAllClock(){
  800014c:	b580      	push	{r7, lr}
  800014e:	af00      	add	r7, sp, #0
 
-	HAL_GPIO_WritePin(GPIOA, LED1_Pin|LED2_Pin|LED3_Pin|LED4_Pin
+	HAL_GPIO_WritePin(GPIOA, LED1_Pin|LED2_Pin|LED3_Pin|LED4_Pin|LED5_Pin|LED6_Pin|LED7_Pin|LED8_Pin|LED9_Pin|LED10_Pin|LED11_Pin|LED12_Pin, GPIO_PIN_RESET);
  8000150:	2200      	movs	r2, #0
  8000152:	f64f 71f0 	movw	r1, #65520	; 0xfff0
  8000156:	4802      	ldr	r0, [pc, #8]	; (8000160 <ClearAllClock+0x14>)
  8000158:	f000 fbee 	bl	8000938 <HAL_GPIO_WritePin>
-	                          |LED5_Pin|LED6_Pin|LED7_Pin|LED8_Pin
-	                          |LED9_Pin|LED10_Pin|LED11_Pin|LED12_Pin, GPIO_PIN_RESET);
 }
  800015c:	bf00      	nop
  800015e:	bd80      	pop	{r7, pc}
