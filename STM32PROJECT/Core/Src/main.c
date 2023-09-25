@@ -72,6 +72,9 @@ void ClearAllClock(){
 void setNumberOnClock(int num){
 	HAL_GPIO_WritePin(GPIOA,led[num],GPIO_PIN_SET);
 }
+void clearNumberOnClock(int num){
+	HAL_GPIO_WritePin(GPIOA,led[num],GPIO_PIN_RESET);
+}
 int main(void)
 {
   /* USER CODE BEGIN 1 */
@@ -105,12 +108,12 @@ int main(void)
 
   HAL_GPIO_WritePin(GPIOA, LED1_Pin|LED2_Pin|LED3_Pin|LED4_Pin
   	                          |LED5_Pin|LED6_Pin|LED7_Pin|LED8_Pin
-  	                          |LED9_Pin|LED10_Pin|LED11_Pin|LED12_Pin, GPIO_PIN_RESET);
+  	                          |LED9_Pin|LED10_Pin|LED11_Pin|LED12_Pin, GPIO_PIN_SET);
   while (1)
   {
 
 	  for(int i=0;i<12;i++){
-		  setNumberOnClock(i);
+		  clearNumberOnClock(i);
 		  HAL_Delay(1000);
 	  }
 

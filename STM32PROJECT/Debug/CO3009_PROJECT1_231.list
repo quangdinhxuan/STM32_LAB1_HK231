@@ -29,23 +29,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY
  12 .comment      00000043  00000000  00000000  0002004d  2**0
                   CONTENTS, READONLY
- 13 .debug_info   00002889  00000000  00000000  00020090  2**0
+ 13 .debug_info   000028ab  00000000  00000000  00020090  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_abbrev 00000e4e  00000000  00000000  00022919  2**0
+ 14 .debug_abbrev 00000e4f  00000000  00000000  0002293b  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_aranges 000003e0  00000000  00000000  00023768  2**3
+ 15 .debug_aranges 000003e8  00000000  00000000  00023790  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_rnglists 000002c3  00000000  00000000  00023b48  2**0
+ 16 .debug_rnglists 000002c9  00000000  00000000  00023b78  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_macro  000155b1  00000000  00000000  00023e0b  2**0
+ 17 .debug_macro  000155b1  00000000  00000000  00023e41  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_line   00004953  00000000  00000000  000393bc  2**0
+ 18 .debug_line   0000496c  00000000  00000000  000393f2  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .debug_str    0007995b  00000000  00000000  0003dd0f  2**0
+ 19 .debug_str    0007996e  00000000  00000000  0003dd5e  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 20 .debug_frame  00000d70  00000000  00000000  000b766c  2**2
+ 20 .debug_frame  00000d94  00000000  00000000  000b76cc  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 21 .debug_line_str 00000067  00000000  00000000  000b83dc  2**0
+ 21 .debug_line_str 00000067  00000000  00000000  000b8460  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -78,24 +78,24 @@ Disassembly of section .text:
  8000144:	20000028 	.word	0x20000028
  8000148:	080011a4 	.word	0x080011a4
 
-0800014c <setNumberOnClock>:
-	HAL_GPIO_WritePin(GPIOA, LED1_Pin|LED2_Pin|LED3_Pin|LED4_Pin
-	                          |LED5_Pin|LED6_Pin|LED7_Pin|LED8_Pin
-	                          |LED9_Pin|LED10_Pin|LED11_Pin|LED12_Pin, GPIO_PIN_RESET);
+0800014c <clearNumberOnClock>:
 }
 
 void setNumberOnClock(int num){
+	HAL_GPIO_WritePin(GPIOA,led[num],GPIO_PIN_SET);
+}
+void clearNumberOnClock(int num){
  800014c:	b580      	push	{r7, lr}
  800014e:	b082      	sub	sp, #8
  8000150:	af00      	add	r7, sp, #0
  8000152:	6078      	str	r0, [r7, #4]
-	HAL_GPIO_WritePin(GPIOA,led[num],GPIO_PIN_SET);
- 8000154:	4a06      	ldr	r2, [pc, #24]	; (8000170 <setNumberOnClock+0x24>)
+	HAL_GPIO_WritePin(GPIOA,led[num],GPIO_PIN_RESET);
+ 8000154:	4a06      	ldr	r2, [pc, #24]	; (8000170 <clearNumberOnClock+0x24>)
  8000156:	687b      	ldr	r3, [r7, #4]
  8000158:	f832 3013 	ldrh.w	r3, [r2, r3, lsl #1]
- 800015c:	2201      	movs	r2, #1
+ 800015c:	2200      	movs	r2, #0
  800015e:	4619      	mov	r1, r3
- 8000160:	4804      	ldr	r0, [pc, #16]	; (8000174 <setNumberOnClock+0x28>)
+ 8000160:	4804      	ldr	r0, [pc, #16]	; (8000174 <clearNumberOnClock+0x28>)
  8000162:	f000 fbfd 	bl	8000960 <HAL_GPIO_WritePin>
 }
  8000166:	bf00      	nop
@@ -139,12 +139,12 @@ int main(void)
   /* USER CODE BEGIN WHILE */
 
   HAL_GPIO_WritePin(GPIOA, LED1_Pin|LED2_Pin|LED3_Pin|LED4_Pin
- 800018a:	2200      	movs	r2, #0
+ 800018a:	2201      	movs	r2, #1
  800018c:	f64f 71f0 	movw	r1, #65520	; 0xfff0
  8000190:	4809      	ldr	r0, [pc, #36]	; (80001b8 <main+0x40>)
  8000192:	f000 fbe5 	bl	8000960 <HAL_GPIO_WritePin>
   	                          |LED5_Pin|LED6_Pin|LED7_Pin|LED8_Pin
-  	                          |LED9_Pin|LED10_Pin|LED11_Pin|LED12_Pin, GPIO_PIN_RESET);
+  	                          |LED9_Pin|LED10_Pin|LED11_Pin|LED12_Pin, GPIO_PIN_SET);
   while (1)
   {
 
@@ -152,9 +152,9 @@ int main(void)
  8000196:	2300      	movs	r3, #0
  8000198:	607b      	str	r3, [r7, #4]
  800019a:	e009      	b.n	80001b0 <main+0x38>
-		  setNumberOnClock(i);
+		  clearNumberOnClock(i);
  800019c:	6878      	ldr	r0, [r7, #4]
- 800019e:	f7ff ffd5 	bl	800014c <setNumberOnClock>
+ 800019e:	f7ff ffd5 	bl	800014c <clearNumberOnClock>
 		  HAL_Delay(1000);
  80001a2:	f44f 707a 	mov.w	r0, #1000	; 0x3e8
  80001a6:	f000 f957 	bl	8000458 <HAL_Delay>
