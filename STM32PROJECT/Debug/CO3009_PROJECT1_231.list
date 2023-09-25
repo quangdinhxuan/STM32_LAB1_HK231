@@ -29,9 +29,9 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY
  12 .comment      00000043  00000000  00000000  00020035  2**0
                   CONTENTS, READONLY
- 13 .debug_info   00002875  00000000  00000000  00020078  2**0
+ 13 .debug_info   00002872  00000000  00000000  00020078  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_abbrev 00000e11  00000000  00000000  000228ed  2**0
+ 14 .debug_abbrev 00000e13  00000000  00000000  000228ea  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  15 .debug_aranges 000003d0  00000000  00000000  00023700  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
@@ -41,11 +41,11 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  18 .debug_line   0000493c  00000000  00000000  00039339  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .debug_str    00079946  00000000  00000000  0003dc75  2**0
+ 19 .debug_str    00079941  00000000  00000000  0003dc75  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 20 .debug_frame  00000d34  00000000  00000000  000b75bc  2**2
+ 20 .debug_frame  00000d34  00000000  00000000  000b75b8  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 21 .debug_line_str 00000067  00000000  00000000  000b82f0  2**0
+ 21 .debug_line_str 00000067  00000000  00000000  000b82ec  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -114,7 +114,7 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  uint16_t pins[12] = {LED1_Pin,LED2_Pin,LED3_Pin,LED4_Pin,LED5_Pin,LED6_Pin,LED7_Pin,LED8_Pin,LED9_Pin,LED10_Pin,LED11_Pin,LED12_Pin};
+  uint16_t led[12] = {LED1_Pin,LED2_Pin,LED3_Pin,LED4_Pin,LED5_Pin,LED6_Pin,LED7_Pin,LED8_Pin,LED9_Pin,LED10_Pin,LED11_Pin,LED12_Pin};
  800015e:	4b26      	ldr	r3, [pc, #152]	; (80001f8 <main+0xac>)
  8000160:	463c      	mov	r4, r7
  8000162:	461d      	mov	r5, r3
@@ -135,7 +135,7 @@ int main(void)
  800017a:	69bb      	ldr	r3, [r7, #24]
  800017c:	2b00      	cmp	r3, #0
  800017e:	d11b      	bne.n	80001b8 <main+0x6c>
-	  HAL_GPIO_TogglePin(GPIOA, pins[i]);
+	  HAL_GPIO_TogglePin(GPIOA, led[i]);
  8000180:	69bb      	ldr	r3, [r7, #24]
  8000182:	005b      	lsls	r3, r3, #1
  8000184:	3320      	adds	r3, #32
@@ -148,7 +148,7 @@ int main(void)
  8000194:	69fb      	ldr	r3, [r7, #28]
  8000196:	2b00      	cmp	r3, #0
  8000198:	d004      	beq.n	80001a4 <main+0x58>
-		  HAL_GPIO_TogglePin(GPIOA, pins[11]);
+		  HAL_GPIO_TogglePin(GPIOA, led[11]);
  800019a:	8afb      	ldrh	r3, [r7, #22]
  800019c:	4619      	mov	r1, r3
  800019e:	4817      	ldr	r0, [pc, #92]	; (80001fc <main+0xb0>)
@@ -169,7 +169,7 @@ int main(void)
  80001b6:	e018      	b.n	80001ea <main+0x9e>
 	 }
 	 else{
-		 HAL_GPIO_TogglePin(GPIOA, pins[i-1]);
+		 HAL_GPIO_TogglePin(GPIOA, led[i-1]);
  80001b8:	69bb      	ldr	r3, [r7, #24]
  80001ba:	3b01      	subs	r3, #1
  80001bc:	005b      	lsls	r3, r3, #1
@@ -179,7 +179,7 @@ int main(void)
  80001c6:	4619      	mov	r1, r3
  80001c8:	480c      	ldr	r0, [pc, #48]	; (80001fc <main+0xb0>)
  80001ca:	f000 fc03 	bl	80009d4 <HAL_GPIO_TogglePin>
-		 HAL_GPIO_TogglePin(GPIOA, pins[i]);
+		 HAL_GPIO_TogglePin(GPIOA, led[i]);
  80001ce:	69bb      	ldr	r3, [r7, #24]
  80001d0:	005b      	lsls	r3, r3, #1
  80001d2:	3320      	adds	r3, #32

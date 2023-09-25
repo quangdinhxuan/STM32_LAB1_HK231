@@ -91,15 +91,15 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  uint16_t pins[12] = {LED1_Pin,LED2_Pin,LED3_Pin,LED4_Pin,LED5_Pin,LED6_Pin,LED7_Pin,LED8_Pin,LED9_Pin,LED10_Pin,LED11_Pin,LED12_Pin};
+  uint16_t led[12] = {LED1_Pin,LED2_Pin,LED3_Pin,LED4_Pin,LED5_Pin,LED6_Pin,LED7_Pin,LED8_Pin,LED9_Pin,LED10_Pin,LED11_Pin,LED12_Pin};
   int flag=0;
   while (1)
   {
 	  for(int i=0; i<12; i++){
 	 if(i==0){
-	  HAL_GPIO_TogglePin(GPIOA, pins[i]);
+	  HAL_GPIO_TogglePin(GPIOA, led[i]);
 	  if(flag!=0){
-		  HAL_GPIO_TogglePin(GPIOA, pins[11]);
+		  HAL_GPIO_TogglePin(GPIOA, led[11]);
 	  }
 	  if(flag==0){
 
@@ -108,8 +108,8 @@ int main(void)
 	  HAL_Delay(1000);
 	 }
 	 else{
-		 HAL_GPIO_TogglePin(GPIOA, pins[i-1]);
-		 HAL_GPIO_TogglePin(GPIOA, pins[i]);
+		 HAL_GPIO_TogglePin(GPIOA, led[i-1]);
+		 HAL_GPIO_TogglePin(GPIOA, led[i]);
 		 	  HAL_Delay(1000);
 	 }
   }
