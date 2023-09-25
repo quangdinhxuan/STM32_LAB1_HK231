@@ -61,7 +61,7 @@ static void MX_GPIO_Init(void);
   * @brief  The application entry point.
   * @retval int
   */
-uint16_t led[12] = {LED1_Pin,LED2_Pin,LED3_Pin,LED4_Pin,LED5_Pin,LED6_Pin,LED7_Pin,LED8_Pin,LED9_Pin,LED10_Pin,LED11_Pin,LED12_Pin};
+uint16_t led[12] = {LED12_Pin,LED1_Pin,LED2_Pin,LED3_Pin,LED4_Pin,LED5_Pin,LED6_Pin,LED7_Pin,LED8_Pin,LED9_Pin,LED10_Pin,LED11_Pin};
 void ClearAllClock(){
 
 	HAL_GPIO_WritePin(GPIOA, LED1_Pin|LED2_Pin|LED3_Pin|LED4_Pin
@@ -70,6 +70,9 @@ void ClearAllClock(){
 }
 
 void setNumberOnClock(int num){
+	if(num==12){
+		HAL_GPIO_WritePin(GPIOA,led[0],GPIO_PIN_SET);
+	}
 	HAL_GPIO_WritePin(GPIOA,led[num],GPIO_PIN_SET);
 }
 void clearNumberOnClock(int num){
@@ -109,9 +112,35 @@ int main(void)
   HAL_GPIO_WritePin(GPIOA, LED1_Pin|LED2_Pin|LED3_Pin|LED4_Pin
   	                          |LED5_Pin|LED6_Pin|LED7_Pin|LED8_Pin
   	                          |LED9_Pin|LED10_Pin|LED11_Pin|LED12_Pin, GPIO_PIN_RESET);
+  int hr=0;
+  int mi=0;
+  int se=0;
+ int cnt=0;
   while (1)
   {
+if(se==60){
+	cnt++;
+	if(cnt==5){
+		mi=mi+5;
+		cnt=0;
+		}
 
+	se=0;
+}
+if(mi==60){
+	hr++;
+	mi=0;
+}
+if(hr==24){
+	hr=0;
+}
+ClearAllClock();
+setNumberOnClock(se/5);
+setNumberOnClock(mi/5);
+setNumberOnClock(hr%12);
+se=se+5;
+
+HAL_Delay(100);
 
 
   }
