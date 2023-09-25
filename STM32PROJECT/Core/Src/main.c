@@ -93,25 +93,35 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   int cnt=0;
   while (1)
-  {  if(cnt%2==0){
-	  HAL_GPIO_TogglePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin);
+
+  {  if(cnt==10){
+	  cnt=0;
   }
-  if(cnt%3==0){
-	  HAL_GPIO_TogglePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin);
+	  if(cnt==0){
+	  HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, RESET);
+	  HAL_GPIO_WritePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin, SET);
+	  HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin, SET);
   }
-  if(cnt%5==0){
-	  HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
+  if(cnt==5){
+	  HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, SET);
+	  HAL_GPIO_WritePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin, SET);
+	  HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin, RESET);
   }
- HAL_Delay(1000);
-	  cnt++;
+  if(cnt==8){
+	  HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, SET);
+	  HAL_GPIO_WritePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin, RESET);
+	  HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin, SET);
+
 
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
   }
+  HAL_Delay(1000);
+  	  cnt++;
   /* USER CODE END 3 */
 }
-
+}
 /**
   * @brief System Clock Configuration
   * @retval None
