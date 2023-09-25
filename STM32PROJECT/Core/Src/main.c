@@ -98,6 +98,7 @@ int main(void)
    HAL_GPIO_WritePin(d_GPIO_Port, d_Pin, SET);
    HAL_GPIO_WritePin(e_GPIO_Port, e_Pin, SET);
    HAL_GPIO_WritePin(f_GPIO_Port, f_Pin, SET);
+   //TODO
    void display7SEG(int num){
      	  switch(num){
      	  	  	case 0:

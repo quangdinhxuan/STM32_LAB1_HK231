@@ -79,11 +79,11 @@ Disassembly of section .text:
  8000148:	080015cc 	.word	0x080015cc
 
 0800014c <display7SEG.0>:
-   HAL_GPIO_WritePin(b_GPIO_Port, b_Pin, SET);
    HAL_GPIO_WritePin(c_GPIO_Port, c_Pin, SET);
    HAL_GPIO_WritePin(d_GPIO_Port, d_Pin, SET);
    HAL_GPIO_WritePin(e_GPIO_Port, e_Pin, SET);
    HAL_GPIO_WritePin(f_GPIO_Port, f_Pin, SET);
+   //TODO
    void display7SEG(int num){
  800014c:	b580      	push	{r7, lr}
  800014e:	b082      	sub	sp, #8
