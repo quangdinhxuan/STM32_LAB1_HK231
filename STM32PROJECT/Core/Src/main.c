@@ -61,45 +61,7 @@ static void MX_GPIO_Init(void);
   * @brief  The application entry point.
   * @retval int
   */
-int main(void)
-{
-  /* USER CODE BEGIN 1 */
-
-  /* USER CODE END 1 */
-
-  /* MCU Configuration--------------------------------------------------------*/
-
-  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
-  HAL_Init();
-
-  /* USER CODE BEGIN Init */
-
-  /* USER CODE END Init */
-
-  /* Configure the system clock */
-  SystemClock_Config();
-
-  /* USER CODE BEGIN SysInit */
-
-  /* USER CODE END SysInit */
-
-  /* Initialize all configured peripherals */
-  MX_GPIO_Init();
-  /* USER CODE BEGIN 2 */
-
-  /* USER CODE END 2 */
-
-  /* Infinite loop */
-  /* USER CODE BEGIN WHILE */
-  HAL_GPIO_WritePin(a_GPIO_Port, a_Pin, SET);
-   HAL_GPIO_WritePin(g_GPIO_Port, g_Pin, SET);
-   HAL_GPIO_WritePin(b_GPIO_Port, b_Pin, SET);
-   HAL_GPIO_WritePin(c_GPIO_Port, c_Pin, SET);
-   HAL_GPIO_WritePin(d_GPIO_Port, d_Pin, SET);
-   HAL_GPIO_WritePin(e_GPIO_Port, e_Pin, SET);
-   HAL_GPIO_WritePin(f_GPIO_Port, f_Pin, SET);
-   //TODO
-   void display7SEG(int num){
+void display7SEG(int num){
      	  switch(num){
      	  	  	case 0:
      				  HAL_GPIO_WritePin(a_GPIO_Port, a_Pin, RESET);
@@ -194,6 +156,45 @@ int main(void)
 
      	  }
        }
+int main(void)
+{
+  /* USER CODE BEGIN 1 */
+
+  /* USER CODE END 1 */
+
+  /* MCU Configuration--------------------------------------------------------*/
+
+  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
+  HAL_Init();
+
+  /* USER CODE BEGIN Init */
+
+  /* USER CODE END Init */
+
+  /* Configure the system clock */
+  SystemClock_Config();
+
+  /* USER CODE BEGIN SysInit */
+
+  /* USER CODE END SysInit */
+
+  /* Initialize all configured peripherals */
+  MX_GPIO_Init();
+  /* USER CODE BEGIN 2 */
+
+  /* USER CODE END 2 */
+
+  /* Infinite loop */
+  /* USER CODE BEGIN WHILE */
+   HAL_GPIO_WritePin(a_GPIO_Port, a_Pin, SET);
+   HAL_GPIO_WritePin(g_GPIO_Port, g_Pin, SET);
+   HAL_GPIO_WritePin(b_GPIO_Port, b_Pin, SET);
+   HAL_GPIO_WritePin(c_GPIO_Port, c_Pin, SET);
+   HAL_GPIO_WritePin(d_GPIO_Port, d_Pin, SET);
+   HAL_GPIO_WritePin(e_GPIO_Port, e_Pin, SET);
+   HAL_GPIO_WritePin(f_GPIO_Port, f_Pin, SET);
+   //TODO
+
    int cnt=5;
    int flag=0;
   while (1)
@@ -219,7 +220,7 @@ int main(void)
 		 HAL_GPIO_WritePin ( LED_RED_HOR_GPIO_Port , LED_RED_HOR_Pin ,GPIO_PIN_SET ) ;
 		 HAL_GPIO_WritePin ( LED_YELLOW_HOR_GPIO_Port , LED_YELLOW_HOR_Pin ,GPIO_PIN_RESET ) ;
 		 		 if(cnt>2){
-		 			 HAL_GPIO_WritePin ( LED_GREEN_VER_GPIO_Port , LED_GREEN_VER_Pin ,GPIO_PIN_SET ) ;
+		 			HAL_GPIO_WritePin ( LED_GREEN_VER_GPIO_Port , LED_GREEN_VER_Pin ,GPIO_PIN_SET ) ;
 		 			HAL_GPIO_WritePin ( LED_RED_VER_GPIO_Port , LED_RED_VER_Pin ,GPIO_PIN_RESET ) ;
 		 		 }
 		 		 else{
