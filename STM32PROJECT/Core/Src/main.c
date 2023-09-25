@@ -206,7 +206,7 @@ int main(void)
 		 HAL_GPIO_WritePin ( LED_RED_VER_GPIO_Port , LED_RED_VER_Pin ,GPIO_PIN_SET ) ;
 		 HAL_GPIO_WritePin ( LED_YELLOW_VER_GPIO_Port , LED_YELLOW_VER_Pin ,GPIO_PIN_RESET ) ;
 
-		 if(cnt>=2){
+		 if(cnt>2){
 			 HAL_GPIO_WritePin ( LED_GREEN_HOR_GPIO_Port , LED_GREEN_HOR_Pin ,GPIO_PIN_SET ) ;
 			 HAL_GPIO_WritePin ( LED_RED_HOR_GPIO_Port , LED_RED_HOR_Pin ,GPIO_PIN_RESET ) ;
 		 }
@@ -218,7 +218,7 @@ int main(void)
 	 else{
 		 HAL_GPIO_WritePin ( LED_RED_HOR_GPIO_Port , LED_RED_HOR_Pin ,GPIO_PIN_SET ) ;
 		 HAL_GPIO_WritePin ( LED_YELLOW_HOR_GPIO_Port , LED_YELLOW_HOR_Pin ,GPIO_PIN_RESET ) ;
-		 		 if(cnt>=2){
+		 		 if(cnt>2){
 		 			 HAL_GPIO_WritePin ( LED_GREEN_VER_GPIO_Port , LED_GREEN_VER_Pin ,GPIO_PIN_SET ) ;
 		 			HAL_GPIO_WritePin ( LED_RED_VER_GPIO_Port , LED_RED_VER_Pin ,GPIO_PIN_RESET ) ;
 		 		 }
