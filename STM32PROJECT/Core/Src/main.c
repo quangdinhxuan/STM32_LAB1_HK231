@@ -61,7 +61,7 @@ static void MX_GPIO_Init(void);
   * @brief  The application entry point.
   * @retval int
   */
-uint16_t pins[12] = {LED1_Pin,LED2_Pin,LED3_Pin,LED4_Pin,LED5_Pin,LED6_Pin,LED7_Pin,LED8_Pin,LED9_Pin,LED10_Pin,LED11_Pin,LED12_Pin};
+uint16_t led[12] = {LED1_Pin,LED2_Pin,LED3_Pin,LED4_Pin,LED5_Pin,LED6_Pin,LED7_Pin,LED8_Pin,LED9_Pin,LED10_Pin,LED11_Pin,LED12_Pin};
 void ClearAllClock(){
 
 	HAL_GPIO_WritePin(GPIOA, LED1_Pin|LED2_Pin|LED3_Pin|LED4_Pin
@@ -70,7 +70,7 @@ void ClearAllClock(){
 }
 
 void setNumberOnClock(int num){
-	HAL_GPIO_WritePin(GPIOA,pins[num],GPIO_PIN_SET);
+	HAL_GPIO_WritePin(GPIOA,led[num],GPIO_PIN_SET);
 }
 int main(void)
 {
