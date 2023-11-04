@@ -1,2 +1,1 @@
 # STM32_LAB1_HK231
-Use STM32CUBE IDE, Using FreeRTOS của hãng
